@@ -1,0 +1,17 @@
+class Solution(object):
+    def sortedSquares(self, nums):
+        new_array = [0] * len(nums)
+        point_left = 0
+        point_right = len(nums)-1
+        left_squared = 0
+        right_squared = 0
+        for i in range(len(nums)-1,-1,-1):
+            left_squared = nums[point_left]*nums[point_left]
+            right_squared = nums[point_right]*nums[point_right]
+            if(left_squared > right_squared):
+                new_array[i] = left_squared
+                point_left+=1
+            else:
+                new_array[i] = right_squared
+                point_right-=1
+        return new_array

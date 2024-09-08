@@ -1,0 +1,23 @@
+var isMonotonic = function(nums) {
+    if (nums.length === 0) return true;
+    const first = nums[0];
+    const last = nums[nums.length-1];
+    if(first===last) {
+        for(let i =0 ; i<nums.length; i++){
+            if(nums[i] > nums[i+1]) return false;
+        }
+    }
+    if(first>last) {
+        for(let i=0 ; i<nums.length; i++){
+            if(nums[i] < nums[i+1]) return false;
+        }
+    }
+
+    if(first < last) {
+        for(let i=0 ; i<nums.length; i++){
+            if(nums[i] > nums[i+1]) return false;
+        }
+    }
+
+    return true;
+};
